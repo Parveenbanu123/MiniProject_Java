@@ -1,0 +1,113 @@
+package quizportal.dao;
+ 
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+ 
+import quizportal.model.Quiz;
+import quizportal.util.DBConnection;
+ 
+public class QuizDAO {
+ 
+    public boolean addQuiz(Quiz quiz) {
+        try {
+            Connection conn = DBConnection.getConnection();
+            String sql = "INSERT INTO quiz(name, description) VALUES (?, ?)";
+ 
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, quiz.getName());
+            pst.setString(2, quiz.getDescription());
+ 
+            return pst.executeUpdate() > 0;
+ 
+        } catch (Exception e) {
+            System.out.println("Add Quiz Error: " + e.getMessage());
+        }
+        return false;
+    }
+ 
+    public List<Quiz> getAllQuizzes() {
+        List<Quiz> list = new ArrayList<>();
+ 
+        try {
+            Connection conn = DBConnection.getConnection();
+            String sql = "SELECT * FROM quiz";
+ 
+            PreparedStatement pst = conn.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+ 
+            while (rs.next()) {
+                Quiz q = new Quiz();
+                q.setId(rs.getInt("id"));
+                q.setName(rs.getString("name"));
+                q.setDescription(rs.getString("description"));
+                list.add(q);
+            }
+ 
+        } catch (Exception e) {
+            System.out.println("Get All Quizzes Error: " + e.getMessage());
+        }
+ 
+        return list;
+    }
+ 
+    public Quiz getQuizById(int id) {
+        Quiz quiz = null;
+ 
+        try {
+            Connection conn = DBConnection.getConnection();
+            String sql = "SELECT * FROM quiz WHERE id=?";
+ 
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setInt(1, id);
+ 
+            ResultSet rs = pst.executeQuery();
+ 
+            if (rs.next()) {
+                quiz = new Quiz();
+                quiz.setId(rs.getInt("id"));
+                quiz.setName(rs.getString("name"));
+                quiz.setDescription(rs.getString("description"));
+            }
+ 
+        } catch (Exception e) {
+            System.out.println("Get Quiz Error: " + e.getMessage());
+        }
+ 
+        return quiz;
+    }
+ 
+    public boolean updateQuiz(Quiz quiz) {
+        try {
+            Connection conn = DBConnection.getConnection();
+            String sql = "UPDATE quiz SET name=?, description=? WHERE id=?";
+ 
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, quiz.getName());
+            pst.setString(2, quiz.getDescription());
+            pst.setInt(3, quiz.getId());
+ 
+            return pst.executeUpdate() > 0;
+ 
+        } catch (Exception e) {
+            System.out.println("Update Quiz Error: " + e.getMessage());
+        }
+        return false;
+    }
+ 
+    public boolean deleteQuiz(int id) {
+        try {
+            Connection conn = DBConnection.getConnection();
+            String sql = "DELETE FROM quiz WHERE id=?";
+ 
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setInt(1, id);
+ 
+            return pst.executeUpdate() > 0;
+ 
+        } catch (Exception e) {
+            System.out.println("Delete Quiz Error: " + e.getMessage());
+        }
+        return false;
+    }
+}

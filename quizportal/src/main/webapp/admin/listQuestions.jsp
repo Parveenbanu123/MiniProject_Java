@@ -1,0 +1,59 @@
+<%@ page import="java.util.List" %>
+<%@ page import="quizportal.model.Question" %>
+ 
+<%
+    List<Question> questions = (List<Question>) request.getAttribute("questions");
+	int quizId=Integer.parseInt(request.getParameter("quizId"));
+%>
+ 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Questions List</title>
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
+ 
+</head>
+<body>
+    <h2>Questions for Quiz ID: <%=quizId%></h2>
+ 
+    <a href="admin/addQuestion.jsp?quizId=<%=quizId%>">Add New Question</a><br><br>
+ 
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>ID</th>
+            <th>Question</th>
+            <th>Option A</th>
+            <th>Option B</th>
+            <th>Option C</th>
+            <th>Option D</th>
+            <th>Correct</th>
+            <th>Actions</th>
+        </tr>
+ 
+        <%
+            if (questions != null) {
+                for (Question q : questions) {
+        %>
+        <tr>
+            <td><%=q.getId()%></td>
+            <td><%=q.getQuestionText()%></td>
+            <td><%=q.getOptionA()%></td>
+            <td><%=q.getOptionB()%></td>
+            <td><%=q.getOptionC()%></td>
+            <td><%=q.getOptionD()%></td>
+            <td><%=q.getCorrectOption()%></td>
+            <td>
+                <a href="editQuestion?id=<%=q.getId()%>&quizId=<%=quizId%>">Edit</a> |
+                <a href="deleteQuestion?id=<%=q.getId()%>&quizId=<%=quizId%>" onclick="return confirm('Delete this question?');">Delete</a>
+            </td>
+        </tr>
+        <%
+                }
+            }
+        %>
+    </table>
+ 
+    <br>
+    <a href="listQuizzes">Back to Quiz List</a>
+</body>
+</html>

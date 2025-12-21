@@ -24,8 +24,9 @@ public class InputExceptionHandle {
 		if(vehicle.getPrice()> 1000000 || vehicle.getPrice()<50000) return false;
 		if(vehicle.getVelocity()<120 || vehicle.getVelocity()>300) return false;
 		if(vehicle.getSeats()<2 || vehicle.getSeats()>50) return false;
-		if(vehicle.getType()!=1 || vehicle.getType()!=2 || vehicle.getType()!=3)return false;
+		if(vehicle.getType()!=1 && vehicle.getType()!=2 && vehicle.getType()!=3)return false;
 		
 		return true;
 	}
 }
+

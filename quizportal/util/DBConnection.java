@@ -5,9 +5,9 @@ import java.sql.DriverManager;
  
 public class DBConnection {
  
-    private static final String URL = "jdbc:mysql://localhost:3306/quiz_portal";
+    private static final String URL = "jdbc:mysql://localhost:3306/quiz_db";
     private static final String USERNAME = "root";   
-    private static final String PASSWORD = "root@39";       
+    private static final String PASSWORD = "Parveen@12345";
  
     public static Connection getConnection() {
         Connection conn = null;

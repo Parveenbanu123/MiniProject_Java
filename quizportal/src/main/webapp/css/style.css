@@ -1,186 +1,231 @@
 /* ==============================
-   GLOBAL RESET & BASE STYLES
+   GLOBAL RESET & BASE
    ============================== */
 * {
     box-sizing: border-box;
-}
- 
-body {
     margin: 0;
-    padding: 20px;
-    background-color: #f5f7fa;
-    color: #222;
-    font-family: "Segoe UI", Arial, sans-serif;
-    font-size: 15px;
-    line-height: 1.6;
+    padding: 0;
 }
- 
+
+body {
+    padding: 30px;
+    background: radial-gradient(circle at top left, #e0f2f1, #f1f8f6);
+    color: #1f2933;
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.75;
+}
+
 /* ==============================
    HEADINGS
    ============================== */
 h1 {
-    color: #1a237e;
-    margin-bottom: 20px;
+    color: #004d40;
+    margin-bottom: 24px;
+    font-size: 30px;
+    letter-spacing: 0.5px;
 }
- 
+
 h2 {
-    color: #283593;
-    margin-bottom: 15px;
+    color: #00695c;
+    margin-bottom: 18px;
+    font-size: 22px;
 }
- 
+
 h3 {
-    color: #303f9f;
-    margin-bottom: 10px;
+    color: #00796b;
+    margin-bottom: 12px;
+    font-size: 18px;
 }
- 
+
 /* ==============================
    LINKS
    ============================== */
 a {
-    color: #1e88e5;
+    color: #00897b;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
 }
- 
+
 a:hover {
+    color: #004d40;
     text-decoration: underline;
 }
- 
+
 /* ==============================
-   FORMS
+   FORMS (GLASS CARD STYLE)
    ============================== */
 form {
-    background: #ffffff;
-    padding: 20px;
-    margin-bottom: 25px;
-    border-radius: 6px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    max-width: 520px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    padding: 28px;
+    margin-bottom: 35px;
+    border-radius: 14px;
+    max-width: 560px;
+    box-shadow: 0 12px 30px rgba(0, 77, 64, 0.15);
+    border: 1px solid rgba(0, 150, 136, 0.15);
 }
- 
+
 label {
     font-weight: 600;
-    display: block;
     margin-bottom: 6px;
+    display: block;
+    color: #004d40;
 }
- 
+
 input[type="text"],
 input[type="email"],
 input[type="password"],
 textarea,
 select {
     width: 100%;
-    padding: 8px 10px;
-    margin-bottom: 15px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    background: #ffffff;
-    color: #000;
+    padding: 11px 14px;
+    margin-bottom: 18px;
+    border-radius: 8px;
+    border: 1px solid #b2dfdb;
     font-size: 14px;
+    background: #fdfefe;
+    transition: all 0.3s ease;
 }
- 
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #009688;
+    box-shadow: 0 0 0 3px rgba(0, 150, 136, 0.2);
+}
+
 textarea {
     resize: vertical;
-    min-height: 80px;
+    min-height: 95px;
 }
- 
+
 /* ==============================
    BUTTONS
    ============================== */
 button {
-    background-color: #3f51b5;
+    background: linear-gradient(135deg, #009688, #26a69a);
     color: #ffffff;
     border: none;
-    padding: 10px 16px;
+    padding: 11px 22px;
     font-size: 14px;
-    border-radius: 4px;
+    border-radius: 30px;
     cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    transition: all 0.25s ease;
 }
- 
+
 button:hover {
-    background-color: #303f9f;
+    background: linear-gradient(135deg, #00796b, #009688);
+    transform: scale(1.05);
+    box-shadow: 0 8px 18px rgba(0, 150, 136, 0.35);
 }
- 
+
 /* ==============================
-   TABLES
+   TABLES (CARD GRID STYLE)
    ============================== */
 table {
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 25px;
     background: #ffffff;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0, 77, 64, 0.12);
 }
- 
+
 th, td {
-    border: 1px solid #ddd;
-    padding: 10px;
+    padding: 14px 16px;
     text-align: left;
 }
- 
+
 th {
-    background-color: #e3e6f0;
-    color: #000;
+    background: linear-gradient(135deg, #004d40, #00695c);
+    color: #ffffff;
     font-weight: 600;
 }
- 
-tr:nth-child(even) {
-    background-color: #f9f9f9;
+
+td {
+    border-bottom: 1px solid #e0f2f1;
 }
- 
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover td {
+    background-color: #e0f2f1;
+}
+
 /* ==============================
-   DASHBOARD LINKS (TABLE STYLE)
+   DASHBOARD LINKS
    ============================== */
 table a {
-    margin-right: 10px;
+    margin-right: 14px;
+    font-weight: 600;
 }
- 
+
 /* ==============================
    QUIZ QUESTION BLOCK
    ============================== */
 .quiz-question {
-    background: #ffffff;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 6px;
-    border: 1px solid #ddd;
+    background: linear-gradient(135deg, #ffffff, #f1f8f6);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 14px;
+    border-left: 6px solid #009688;
+    box-shadow: 0 10px 22px rgba(0, 77, 64, 0.12);
 }
- 
+
 .quiz-question p {
-    margin: 0 0 10px 0;
+    margin-bottom: 12px;
     font-weight: 600;
+    color: #004d40;
 }
- 
+
 /* ==============================
    MESSAGES
    ============================== */
 .success {
-    color: #2e7d32;
+    color: #1b5e20;
+    background: #e8f5e9;
+    padding: 12px 14px;
+    border-radius: 10px;
     font-weight: 600;
+    margin-bottom: 18px;
+    border-left: 5px solid #2e7d32;
 }
- 
+
 .error {
-    color: #c62828;
+    color: #b71c1c;
+    background: #fdecea;
+    padding: 12px 14px;
+    border-radius: 10px;
     font-weight: 600;
+    margin-bottom: 18px;
+    border-left: 5px solid #c62828;
 }
- 
+
 /* ==============================
    FOOTER / SMALL TEXT
    ============================== */
 hr {
     border: none;
-    border-top: 1px solid #ddd;
-    margin: 25px 0;
+    border-top: 1px dashed #b2dfdb;
+    margin: 35px 0;
 }
- 
+
 small {
-    color: #666;
+    color: #546e7a;
 }
- 
+
 /* ==============================
-   PAGE CONTAINERS (OPTIONAL)
+   PAGE CONTAINER
    ============================== */
 .container {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: auto;
 }

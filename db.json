@@ -1,21 +1,21 @@
 {
   "plans": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Care Life Plan",
       "description": "Basic coverage with low premium.",
       "coverage": 200000,
       "price": 3500
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Good Health Plan",
       "description": "Advanced healthcare with more benefits.",
       "coverage": 500000,
       "price": 5000
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Secure Family Plan",
       "description": "Complete family protection.",
       "coverage": 1000000,
@@ -126,6 +126,21 @@
       "planId": 1,
       "planName": "Care Life Plan",
       "premiumAmt": 4500,
+      "validity": "2025-12-11"
+    },
+    {
+      "id": "56a1",
+      "name": "Parveen banu S",
+      "city": "Coimbatore",
+      "phone": "9876543210",
+      "email": "parveenbanu1303@gmail.com",
+      "age": 22,
+      "paymentMode": "Credit Card",
+      "cardNumber": "1234567890123456",
+      "paymentFreq": "Yearly",
+      "planId": "1",
+      "planName": "Care Life Plan",
+      "premiumAmt": 4000,
       "validity": "2025-12-11"
     }
   ]
